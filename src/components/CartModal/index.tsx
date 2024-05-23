@@ -26,7 +26,7 @@ export const CarModal = () => {
             {/* ITEM */}
             <div className="flex gap-4">
               <Image
-                src="https://www.pexels.com/es-es/foto/cafeina-cafe-taza-copa-22884699/"
+                src="https://images.pexels.com/photos/23731719/pexels-photo-23731719/free-photo-of-amanecer-cafeina-cafe-taza.jpeg"
                 alt=""
                 width={72}
                 height={72}
