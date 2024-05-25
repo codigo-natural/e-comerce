@@ -119,11 +119,11 @@ export const CustomizeProducts = ({
         </div>
       ))}
       <Add
-        // productId={productId}
-        // variantId={
-        //   selectedVariant?._id || "00000000-0000-0000-0000-000000000000"
-        // }
-        // stockNumber={selectedVariant?.stock?.quantity || 0}
+        productId={productId}
+        variantId={
+          selectedVariant?._id || "00000000-0000-0000-0000-000000000000"
+        }
+        stockNumber={selectedVariant?.stock?.quantity || 0}
       />
       {/* 
         // Example color options for the product

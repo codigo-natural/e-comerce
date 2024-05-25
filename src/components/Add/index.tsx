@@ -2,17 +2,25 @@
 
 import { useState } from "react";
 
-export const Add = () => {
+export const Add = ({
+  productId,
+  variantId,
+  stockNumber,
+}: {
+  productId: string;
+  variantId: string;
+  stockNumber: number;
+}) => {
   const [quantity, setQuantity] = useState(1);
 
   // TEMPORARY
-  const stock = 4;
+  // const stock = 4;
 
   const handleQuantity = (type: "i" | "d") => {
     if (type === "d" && quantity > 1) {
       setQuantity((prev) => prev - 1);
     }
-    if (type === "i" && quantity < stock) {
+    if (type === "i" && quantity < stockNumber) {
       setQuantity((prev) => prev + 1);
     }
   };
@@ -43,7 +51,7 @@ export const Add = () => {
           <div className="text-xs">Product is out of stock</div>
           {/* ) : ( */}
           <div className="text-xs">
-            {/* Only <span className="text-orange-500">{stockNumber} items</span>{" "} */}
+            Only <span className="text-orange-500">{stockNumber} items</span>{" "}
             left!
             <br /> {"Don't"} miss it
           </div>
