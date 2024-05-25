@@ -97,7 +97,7 @@ export const CustomizeProducts = ({
                 </li>
               ) : (
                 <li
-                  className="ring-1 ring-lama text-lama rounded-md py-1 px-4 text-sm"
+                  className="ring-1 ring-lucid text-lucid rounded-md py-1 px-4 text-sm"
                   style={{
                     cursor: disabled ? "not-allowed" : "pointer",
                     backgroundColor: selected

@@ -47,15 +47,15 @@ export const Add = ({
               +
             </button>
           </div>
-          {/* {stockNumber < 1 ? ( */}
+          {stockNumber < 1 ? (
           <div className="text-xs">Product is out of stock</div>
-          {/* ) : ( */}
+          ) : ( 
           <div className="text-xs">
             Only <span className="text-orange-500">{stockNumber} items</span>{" "}
             left!
             <br /> {"Don't"} miss it
           </div>
-          {/* )} */}
+          )}
         </div>
         <button
           // onClick={() => addItem(wixClient, productId, variantId, quantity)}
