@@ -1,5 +1,6 @@
 "use client";
 
+import { useCartStore } from "app/hooks/useCartStore";
 import { useWixClient } from "app/hooks/useWixClient";
 import { useState } from "react";
 
@@ -28,20 +29,7 @@ export const Add = ({
 
   const wixClient = useWixClient();
 
-  const addItem = async () => {
-    const response = await wixClient.currentCart.addToCurrentCart({
-      lineItems: [
-        {
-          catalogReference: {
-            appId: process.env.NEXT_PUBLIC_WIX_APP_ID!,
-            catalogItemId: productId,
-            ...(variantId && { options: { variantId } }),
-          },
-          quantity: stockNumber,
-        },
-      ],
-    });
-  };
+  const { addItem, isLoading } = useCartStore();
 
   return (
     <div className="flex flex-col gap-4">
@@ -51,7 +39,7 @@ export const Add = ({
           <div className="bg-gray-100 py-2 px-4 rounded-3xl flex items-center justify-between w-32">
             <button
               className="cursor-pointer text-xl disabled:cursor-not-allowed disabled:opacity-20"
-              // onClick={() => handleQuantity("d")}
+              onClick={() => handleQuantity("d")}
               disabled={quantity === 1}
             >
               -
@@ -60,7 +48,7 @@ export const Add = ({
             <button
               className="cursor-pointer text-xl disabled:cursor-not-allowed disabled:opacity-20"
               onClick={() => handleQuantity("i")}
-              // disabled={quantity===stockNumber}
+              disabled={quantity===stockNumber}
             >
               +
             </button>

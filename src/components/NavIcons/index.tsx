@@ -3,15 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CarModal } from "../CartModal";
 import { useWixClient } from "app/hooks/useWixClient";
 import Cookies from "js-cookie";
+import { useCartStore } from "app/hooks/useCartStore";
 
 export const NavIcons = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isLoadind, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const wixClient = useWixClient();
   const router = useRouter();
@@ -32,6 +33,12 @@ export const NavIcons = () => {
     const { logoutUrl } = await wixClient.auth.logout(window.location.href);
     router.push("/");
   };
+
+  const { cart, counter, getCart } = useCartStore();
+
+  useEffect(() => {
+    getCart(wixClient);
+  }, [wixClient, getCart]);
 
   return (
     <div className="flex items-center gap-4 xl:gap-6 relative">
@@ -76,7 +83,7 @@ export const NavIcons = () => {
           className="cursor-pointer"
         />
         <div className="absolute -top-4 -right-4 w-6 bg-lucid rounded-full text-white text-sm flex items-center justify-center">
-          21
+          {counter}
         </div>
       </div>
       {isCartOpen && <CarModal />}
