@@ -32,7 +32,7 @@ export default async function Home() {
         <h1 className="text-2xl">Featured Product</h1>
         <Suspense fallback={"loading"}>
           <ProductList
-            categoryId={process.env.NEXT_PUBLIC_FEATURED_PRODUCTS_CATEGORY_ID!}
+            categoryId={process.env.FEATURED_PRODUCTS_CATEGORY_ID!}
             limit={4}
           />
         </Suspense>
