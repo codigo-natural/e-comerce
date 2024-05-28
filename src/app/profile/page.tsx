@@ -1,4 +1,6 @@
 import { members } from "@wix/members";
+import { UpdateButton } from "app/components/UpdateButton";
+import { updateUser } from "app/lib/actions";
 import { wixClientServer } from "app/lib/wixClientServer";
 import Link from "next/link";
 import { format } from "timeago.js";
