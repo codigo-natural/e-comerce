@@ -1,6 +1,7 @@
 import { Add } from "app/components/Add";
 import { CustomizeProducts } from "app/components/CustomizeProducts";
 import { ProductImages } from "app/components/ProductImages";
+import { Reviews } from "app/components/Reviews";
 import { wixClientServer } from "app/lib/wixClientServer";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -66,9 +67,9 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
         <div className="h-[2px] bg-gray-100" />
         {/* REVIEWS */}
         <h1 className="text-2xl">User Reviews</h1>
-        {/* <Suspense fallback="Loading...">
+        <Suspense fallback="Loading...">
             <Reviews productId={product._id!} />
-          </Suspense> */}
+          </Suspense>
       </div>
     </div>
   );
